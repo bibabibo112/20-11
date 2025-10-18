@@ -60,6 +60,8 @@
       <button id="noBtn">Không</button>
     </div>
 
+    <p id="message"></p>
+
     <!-- SVG mask nhúng nội tuyến -->
     <svg width="0" height="0">
       <defs>
@@ -83,7 +85,7 @@
     <script>
       // Khi bấm "Dạ"
       document.getElementById("noBtn").addEventListener("click", () => {
-        alert("Anh biết mà!💔 ");
+        message.innerHTML = "Anh biết mà 💔";
       });
 
       // Khi bấm "Không" -> chạy trốn
