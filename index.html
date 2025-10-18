@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Em yêu anh không?</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: sans-serif;
+      }
+
+      .heart {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        mask: url(#heart-mask);
+        -webkit-mask: url(#heart-mask);
+        mask-size: cover;
+        -webkit-mask-size: cover;
+        overflow: hidden;
+      }
+
+      .heart img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: hotpink;
+        color: white;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: deeppink;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Em yêu anh không?</h1>
+
+    <!-- Vùng trái tim -->
+    <div class="heart">
+      <img
+        src="./375659071_320185130508135_9007117688814187298_n.jpg"
+        alt="love"
+      />
+    </div>
+
+    <div>
+      <button id="yesBtn">Dạ</button>
+      <button id="noBtn">Không</button>
+    </div>
+
+    <!-- SVG mask nhúng nội tuyến -->
+    <svg width="0" height="0">
+      <defs>
+        <mask
+          id="heart-mask"
+          maskUnits="objectBoundingBox"
+          maskContentUnits="objectBoundingBox"
+        >
+          <path
+            d="M0.5,0.15
+             C0.35,0,0,0,0,0.3
+             C0,0.55,0.5,1,0.5,1
+             C0.5,1,1,0.55,1,0.3
+             C1,0,0.65,0,0.5,0.15Z"
+            fill="white"
+          />
+        </mask>
+      </defs>
+    </svg>
+
+    <script>
+      // Khi bấm "Dạ"
+      document.getElementById("noBtn").addEventListener("click", () => {
+        alert("Anh biết mà!💔 ");
+      });
+
+      // Khi bấm "Không" -> chạy trốn
+      const no = document.getElementById("yesBtn");
+      no.addEventListener("click", () => {
+        const x = Math.floor(Math.random() * (window.innerWidth - 100));
+        const y = Math.floor(Math.random() * (window.innerHeight - 50));
+        no.style.position = "absolute";
+        no.style.left = x + "px";
+        no.style.top = y + "px";
+      });
+    </script>
+  </body>
+</html>
